@@ -5,6 +5,11 @@ socket.on('message:new',function(data){
   $('#message-tmpl').tmpl(data).appendTo('#messages');
 });
 
+socket.on('message:jagger',function(data){
+  console.log('got jagger!');
+  var snd = new Audio("/moves.mp3");
+  snd.play();
+});
 
 
 $(function(){

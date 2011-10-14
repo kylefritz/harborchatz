@@ -1,5 +1,6 @@
 var express =  require('express');
 var datetime =  require('datetime');
+var _ = require('underscore');
 
 var app = express.createServer();
 app.configure(function(){
@@ -8,9 +9,25 @@ app.configure(function(){
   app.use(express.static(__dirname + '/public'));
 });
 var io = require('socket.io').listen(app)
+commands=[];
+respond=function(to,byDoing){
+  commands.push([to,byDoing]);
+}
 publishMessage=function(data){
-    io.sockets.emit('message:new',data);
-};
+  _.each(commands,function(command){
+    if(command[0].test(data.message)){
+      command[1](data.message);
+    }
+  });
+  io.sockets.emit('message:new',data);
+}
+
+
+//special responds commands
+respond(/digital harbor/ig,function(data){
+  console.log('sending jagger!');
+  io.sockets.emit('message:jagger',data);
+});
 
 //routes
 app.get('/',function(req,resp){
