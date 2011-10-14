@@ -11,7 +11,8 @@ app.configure(function(){
 
 //routes
 app.get('/',function(req,resp){
-  resp.sendfile(__dirname + 'templates/index.html');
+  //resp.send({status:"we got you"});
+  resp.sendfile(__dirname + '/templates/app.html');
 });
 
 //sockets
