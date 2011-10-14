@@ -11,7 +11,6 @@ app.configure(function(){
 
 //routes
 app.get('/',function(req,resp){
-  //resp.send({status:"we got you"});
   resp.sendfile(__dirname + '/templates/app.html');
 });
 
@@ -20,6 +19,7 @@ var io = require('socket.io').listen(app)
 io.sockets.on('connection', function (socket) {
   //socket.emit('message:new',{front:front, back:back, turn:turn});
   socket.on('message:send',function(data){
+    console.log('received message from client',JSON.stringify(data));
     io.sockets.emit('message:new',data);
   });
 });

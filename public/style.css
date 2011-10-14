@@ -6,3 +6,14 @@ body {
   overflow:scroll;
   height:600px;
 }
+.message:nth-child(odd){
+  background-color:#f9f9f9;
+}
+.fixed-bottom{
+  position:fixed;
+  bottom:0;
+}
+.pull-right {
+  position: fixed;
+  right: 10px;
+}
