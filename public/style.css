@@ -2,10 +2,6 @@ body {
   padding-top: 60px;
 }
 
-#messages{
-  overflow:scroll;
-  height:600px;
-}
 .message:nth-child(odd){
   background-color:#f9f9f9;
 }
@@ -21,4 +17,7 @@ body {
   font-family:lobster;
   color:rgb(0, 100, 205);
   padding-left:1px;
+}
+template{
+  display:none;
 }
