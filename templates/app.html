@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>harbor chat</title>
+
+    <!-- lib -->
+    <link
+    href='http://fonts.googleapis.com/css?family=Leckerli+One|Poly|Lobster' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.3.0/bootstrap.min.css">
+    <script src="http://code.jquery.com/jquery-1.6.4.min.js" ></script>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <!-- app -->
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <script src="/app.js"></script>
+  </head>
+  <body>
+<div class="topbar">
+      <div class="topbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="/">Harbor Chat</a>
+          <p class="pull-right">You're chatting as <input value="Some Dude" id="chat-name"/></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="sidebar">
+        <div class="well">
+          <h5>Here's some stuff</h5>
+        </div>
+      </div>
+
+      <div class="content">
+        <div id="messages">
+
+        </div>
+        <div class="clearfix">
+            <label for="textarea">Textarea</label>
+            <div class="input">
+              <textarea class="xxlarge" id="message" name="message" rows="3"></textarea>
+              <span class="help-block">
+                Block of help text to describe the field above if need be.
+              </span>
+            </div>
+            <p><span id="send" class="btn primary large">Send</span></p>
+        </div>
+
+        <footer>
+          <p>&copy; iDev Team 2011</p>
+          <p><img src="/made-in-baltimore.png" /></p>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
+
