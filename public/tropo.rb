@@ -8,4 +8,4 @@ say "'#{message}' sent"
 
 #post message to chat room
 http = Net::HTTP.new('harborchatz.com')
-http.post "/message" , "message=#{text}&from=#{from}"
+http.post "/message" , "message=#{message}&from=#{from}"
