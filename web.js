@@ -7,20 +7,28 @@ app.configure(function(){
   app.use(express.bodyParser());
   app.use(express.static(__dirname + '/public'));
 });
-
+var io = require('socket.io').listen(app)
+publishMessage=function(data){
+    io.sockets.emit('message:new',data);
+};
 
 //routes
 app.get('/',function(req,resp){
   resp.sendfile(__dirname + '/templates/app.html');
 });
 
+app.post('/message',function(req,resp){
+  publishMessage({from:req.body.from,message:req.body.message});
+  resp.send({status:"ok, i'll send it!"});
+});
+
+
 //sockets
-var io = require('socket.io').listen(app)
 io.sockets.on('connection', function (socket) {
   //socket.emit('message:new',{front:front, back:back, turn:turn});
   socket.on('message:send',function(data){
     console.log('received message from client',JSON.stringify(data));
-    io.sockets.emit('message:new',data);
+    publishMessage(data);
   });
 });
 
