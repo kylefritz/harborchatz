@@ -17,3 +17,8 @@ body {
   position: fixed;
   right: 10px;
 }
+.z{
+  font-family:lobster;
+  color:rgb(0, 100, 205);
+  padding-left:1px;
+}
